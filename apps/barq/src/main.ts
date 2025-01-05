@@ -23,7 +23,6 @@ bootstrapApplication(AppComponent, {
     provideAnimations(),
     importProvidersFrom(UpgradeModule),
     SettingsService,
-    // Register downgraded injector factory
     {
       provide: 'settings',
       useFactory: (i: any) => i.get('settings'),
@@ -33,4 +32,6 @@ bootstrapApplication(AppComponent, {
 }).then(ref => {
   const upgrade = ref.injector.get(UpgradeModule);
   upgrade.bootstrap(document.body, ['AdminApp']);
-}).catch(err => console.error(err));
+}).catch(err => {
+  console.error(err);
+});
