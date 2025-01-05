@@ -7,10 +7,23 @@ import { UpgradeModule } from '@angular/upgrade/static';
 export class UpgradeService {
   constructor(private upgradeModule: UpgradeModule) {}
 
-  upgradeService<T>(name: string): T {
-    if (!this.upgradeModule.$injector) {
-      throw new Error('AngularJS injector is not available. Ensure AngularJS app is bootstrapped.');
+  async waitForAngularJS(): Promise<void> {
+    if (this.upgradeModule.$injector) {
+      return Promise.resolve();
     }
+
+    return new Promise((resolve) => {
+      const interval = setInterval(() => {
+        if (this.upgradeModule.$injector && window.AdminApp) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, 50);
+    });
+  }
+
+  async getService<T>(name: string): Promise<T> {
+    await this.waitForAngularJS();
     return this.upgradeModule.$injector.get(name);
   }
 }

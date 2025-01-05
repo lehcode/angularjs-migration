@@ -1,9 +1,10 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { UpgradeModule } from '@angular/upgrade/static';
-import { importProvidersFrom } from '@angular/core';
+import { importProvidersFrom, ApplicationRef } from '@angular/core';
 import { AppComponent } from './app/app.component';
 import { SettingsService } from './app/services/settings.service';
+import { UpgradeService } from './upgrade/upgrade.service';
 
 // Import AngularJS dependencies
 import 'angular';
@@ -23,15 +24,21 @@ bootstrapApplication(AppComponent, {
     provideAnimations(),
     importProvidersFrom(UpgradeModule),
     SettingsService,
+    UpgradeService,
     {
       provide: 'settings',
       useFactory: (i: any) => i.get('settings'),
       deps: ['$injector']
     }
   ]
-}).then(ref => {
+}).then((ref: ApplicationRef) => {
   const upgrade = ref.injector.get(UpgradeModule);
-  upgrade.bootstrap(document.body, ['AdminApp']);
+
+  // Bootstrap AngularJS with explicit strictDi mode
+  upgrade.bootstrap(document.body, ['AdminApp'], {
+    strictDi: true
+  });
+
 }).catch(err => {
-  console.error(err);
+  console.error('Bootstrap error:', err)
 });
