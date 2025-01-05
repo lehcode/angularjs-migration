@@ -3654,6 +3654,13 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/angular-local-storage@^0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@types/angular-local-storage/-/angular-local-storage-0.7.4.tgz#fdeb6ca8b7cc3015079aa897757bf357e26ebb1c"
+  integrity sha512-SmgEbRLsizAE/zHTLfuDIyU9etB0ia4Q3bb2L5RONeIVZlxGOCOnmjzq/WsZXln1dBR53viBCKQBSsOVejZ6Ug==
+  dependencies:
+    "@types/angular" "*"
+
 "@types/angular-resource@1.5.20":
   version "1.5.20"
   resolved "https://registry.yarnpkg.com/@types/angular-resource/-/angular-resource-1.5.20.tgz#d2ac34447b8e00dd083cd249bf39fcf866d65ca7"
@@ -3675,7 +3682,7 @@
   dependencies:
     "@types/angular" "*"
 
-"@types/angular@*", "@types/angular@1.8.9":
+"@types/angular@*", "@types/angular@^1.8.9":
   version "1.8.9"
   resolved "https://registry.yarnpkg.com/@types/angular/-/angular-1.8.9.tgz#d1ae3e87a67f72342d55ff26e611df83df0fb176"
   integrity sha512-Z0HukqZkx0fotsV3QO00yqU9NzcQI+tMcrum+8MvfB4ePqCawZctF/gz6QiuII+T1ax+LitNoPx/eICTgnF4sg==
@@ -4403,6 +4410,16 @@ ajv@^6.12.4, ajv@^6.12.5:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+angular-animate@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.8.3.tgz#f88db37325de256f9144d1242ce3158134a9d72a"
+  integrity sha512-/LtTKvy5sD6MZbV0v+nHgOIpnFF0mrUp+j5WIxVprVhcrJriYpuCZf4S7Owj1o76De/J0eRzANUozNJ6hVepnQ==
+
+angular-aria@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/angular-aria/-/angular-aria-1.8.3.tgz#b387ebca9569eb557855abb283a09c2d0457e779"
+  integrity sha512-qTXclmTW/KGw5JNKKQPcCKKq6hCBZ39jYINmLgMsjUHBAoxULaMRRTaRj/L2VTOjKvK5f9enkx+EUqRqzXDSFQ==
 
 angular-datatables@4.0.0:
   version "4.0.0"

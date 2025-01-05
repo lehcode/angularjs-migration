@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  standalone: true,
+  imports: [],
+  template: `
+    <!-- Hybrid app template -->
+    <div class="app-container">
+      <!-- AngularJS router outlet -->
+      <div ui-view></div>
+      <!-- Add components here -->
+    </div>
+  `
 })
 export class AppComponent {
   title = 'barq';

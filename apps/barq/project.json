@@ -10,6 +10,19 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "allowedCommonJsDependencies": [
+          "angular",
+          "lodash",
+          "@uirouter/angularjs",
+          "angular-sanitize",
+          "angular-resource",
+          "angular-route",
+          "angular-material",
+          "angular-material-icons",
+          "angular-ui-grid",
+          "angular-local-storage",
+          "lf-ng-md-file-input"
+        ],
         "outputPath": "dist/apps/barq",
         "index": "apps/barq/src/index.html",
         "main": "apps/barq/src/main.ts",
@@ -18,11 +31,34 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/barq/public"
+            "input": "apps/legacy/assets"
           }
         ],
-        "styles": ["apps/barq/src/styles.css"],
-        "scripts": []
+        "styles": [
+          "apps/barq/src/styles.css",
+          "apps/legacy/assets/sass/_variables.scss",
+          "apps/legacy/assets/sass/app.scss",
+          "node_modules/angular-material/angular-material.css",
+          "node_modules/angular-ui-grid/ui-grid.css",
+          "node_modules/lf-ng-md-file-input/dist/lf-ng-md-file-input.css"
+        ],
+        "scripts": [
+          "node_modules/angular/angular.js",
+          "node_modules/jquery/dist/jquery.js",
+          "node_modules/@uirouter/angularjs/release/angular-ui-router.js",
+          "node_modules/angular-sanitize/angular-sanitize.js",
+          "node_modules/angular-resource/angular-resource.js",
+          "node_modules/angular-route/angular-route.js",
+          "node_modules/angular-material/angular-material.js",
+          "node_modules/angular-material-icons/angular-material-icons.js",
+          "node_modules/angular-ui-grid/ui-grid.js",
+          "node_modules/angular-local-storage/dist/angular-local-storage.js",
+          "node_modules/angular-slimscroll/angular-slimScroll.js",
+          "node_modules/lf-ng-md-file-input/dist/lf-ng-md-file-input.js",
+          "apps/legacy/app/legacy-init.js",
+          "apps/legacy/app/config.js",
+          "apps/legacy/app/run.js"
+        ]
       },
       "configurations": {
         "production": {
@@ -30,7 +66,7 @@
             {
               "type": "initial",
               "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumError": "2mb"
             },
             {
               "type": "anyComponentStyle",
