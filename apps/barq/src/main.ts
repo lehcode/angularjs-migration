@@ -19,26 +19,24 @@ import 'angular-local-storage';
 import 'angular-slimscroll';
 import 'lf-ng-md-file-input';
 
+console.log('Starting application bootstrap...');
+
 bootstrapApplication(AppComponent, {
   providers: [
     provideAnimations(),
     importProvidersFrom(UpgradeModule),
     SettingsService,
-    UpgradeService,
-    {
-      provide: 'settings',
-      useFactory: (i: any) => i.get('settings'),
-      deps: ['$injector']
-    }
+    UpgradeService
   ]
 }).then((ref: ApplicationRef) => {
+  console.log('Angular bootstrap complete');
   const upgrade = ref.injector.get(UpgradeModule);
 
-  // Bootstrap AngularJS with explicit strictDi mode
+  console.log('Starting AngularJS bootstrap...');
   upgrade.bootstrap(document.body, ['AdminApp'], {
     strictDi: true
   });
-
+  console.log('AngularJS bootstrap complete');
 }).catch(err => {
-  console.error('Bootstrap error:', err)
+  console.error('Bootstrap error:', err);
 });

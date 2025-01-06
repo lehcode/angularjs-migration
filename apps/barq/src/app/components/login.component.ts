@@ -85,18 +85,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   `,
 })
 export class LoginComponent implements OnInit {
-  constructor(private upgradeService: UpgradeService) {}
+  constructor(private upgradeService: UpgradeService) {
+    console.log('LoginComponent constructed');
+  }
 
   async ngOnInit() {
+    console.log('LoginComponent initializing...');
     try {
+      console.log('Getting authService...');
       const authService = await this.upgradeService.getService<IAuthService>('authService');
-      console.log('AuthService loaded:', authService);
 
-      // Now you can use the service
       const authData = await authService.getAuthData();
       console.log('Auth data:', authData);
     } catch (err) {
-      console.error('Error loading AngularJS service:', err);
+      console.error('Error in LoginComponent initialization:', err);
+
+      if (window.AdminApp) {
+        console.log('Available services:', Object.keys(window.AdminApp._invokeQueue));
+      }
     }
   }
 }

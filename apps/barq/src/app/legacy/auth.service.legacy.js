@@ -1,25 +1,35 @@
 /**
- * Created by Antony Repin on 8/4/2017.
+ * Auth Service Factory
  */
-
 export const authServiceFactory = [
   'settings',
   '$q',
-
   function (settings, $q) {
+    console.log('Initializing authService');
+
     return {
       getAuthData: function () {
-        return $q(function (resove, reject) {
-          //
+        return $q(function (resolve) {
+          resolve({
+            isAuthenticated: false,
+            user: null
+          });
         });
-      },
+      }
     };
-  },
+  }
 ];
 
-// Register with AngularJS module
-const AdminApp = angular
-  .module('AdminApp')
-  .factory('authService', authServiceFactory);
+// Ensure AdminApp is available
+if (typeof angular !== 'undefined') {
+  try {
+    const app = angular.module('AdminApp');
+    // Register the service
+    app.factory('authService', authServiceFactory);
+    console.log('authService registered with AdminApp');
+  } catch (e) {
+    console.error('Error registering authService:', e);
+  }
+}
 
-export default AdminApp;
+export default authServiceFactory;
