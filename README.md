@@ -70,9 +70,8 @@ The project follows these migration principles:
 2. Clone the legacy repository into the `apps/legacy` directory:
 
    ```bash
-   cd apps/legacy
-   git clone https://github.com/lehcode/delivery-admin-ui.git .
-   cd ../..
+   mkdir -p apps/legacy
+   git clone https://github.com/lehcode/delivery-admin-ui.git apps/legacy
    ```
 
 3. Install dependencies:
