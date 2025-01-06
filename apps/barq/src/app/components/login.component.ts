@@ -6,7 +6,6 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { LazyLoaderService } from '../services/lazy-loader.service';
 
 @Component({
   selector: 'app-login',
@@ -85,10 +84,19 @@ import { LazyLoaderService } from '../services/lazy-loader.service';
     </div>
   `,
 })
-export class LoginComponent implements OnDestroy {
-  constructor(private lazyLoader: LazyLoaderService) {}
+export class LoginComponent implements OnInit {
+  constructor(private upgradeService: UpgradeService) {}
 
-  ngOnDestroy() {
-    this.lazyLoader.destroy();
+  async ngOnInit() {
+    try {
+      const authService = await this.upgradeService.getService<IAuthService>('authService');
+      console.log('AuthService loaded:', authService);
+
+      // Now you can use the service
+      const authData = await authService.getAuthData();
+      console.log('Auth data:', authData);
+    } catch (err) {
+      console.error('Error loading AngularJS service:', err);
+    }
   }
 }
