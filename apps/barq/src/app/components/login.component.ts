@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UpgradeService } from '../../upgrade/upgrade.service';
 import { IAuthService } from '../interfaces/auth-service.interface';
