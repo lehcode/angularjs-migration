@@ -23,6 +23,7 @@
           "angular-local-storage",
           "lf-ng-md-file-input"
         ],
+        "preserveSymlinks": true,
         "outputPath": "dist/apps/barq",
         "index": "apps/barq/src/index.html",
         "main": "apps/barq/src/main.ts",
@@ -56,7 +57,6 @@
           "node_modules/angular-slimscroll/angular-slimScroll.js",
           "node_modules/lf-ng-md-file-input/dist/lf-ng-md-file-input.js",
           "apps/legacy/app/legacy-init.js",
-          "apps/legacy/app/services/authService.js",
           "apps/legacy/app/config.js",
           "apps/legacy/app/run.js"
         ]

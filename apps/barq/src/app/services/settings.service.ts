@@ -15,7 +15,7 @@ export class SettingsService {
     this.apiRoot = `${this.apiHost}/api/admin/${this.apiVersion}`;
   }
 
-  // ... rest of settings implementation
+  // The rest of settings implementation
 }
 
 // Make available to AngularJS

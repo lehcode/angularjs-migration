@@ -86,6 +86,9 @@
       "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "playwright"
+    },
+    "@nx/angular:component": {
+      "style": "css"
     }
   }
 }

@@ -14,8 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {},
-    "types": ["node"],
+    "paths": {
+      "@migrated/*": ["libs/migrated/src/index.ts"],
+      "@legacy/*": ["apps/legacy/*"]
+    },
+    "types": ["node"]
   },
   "exclude": ["node_modules", "tmp"]
 }
